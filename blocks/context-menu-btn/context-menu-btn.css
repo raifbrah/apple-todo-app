@@ -1,0 +1,24 @@
+.context-menu-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  cursor: pointer;
+
+  transition: opacity 300ms;
+}
+.context-menu-btn_open {
+  opacity: .5;
+}
+.context-menu-btn:hover .context-menu-btn__icon {
+  filter: brightness(130%);
+}
+
+
+.context-menu-btn__icon {
+  width: 20px;
+  height: 20px;
+}

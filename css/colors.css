@@ -1,0 +1,21 @@
+:root {
+  --color_systemBlue: #007AFF;
+  --color_systemGreen: #34C759;
+  --color_systemIndigo: #5856D6;
+  --color_systemOrange: #FF9500;
+  --color_systemPink: #FF2D55;
+  --color_systemPurple: #AF52DE;
+  --color_systemRed: #FF3B30;
+  --color_systemTeal: #5AC8FA;
+  --color_systemYellow: #FFCC00;
+
+  --color_systemBlue--translucent: rgba(0, 122, 255, 0.4);
+
+  
+  --color_textGray: #8a8a8e;
+
+  --color_border: #c6c6c8;
+  --color_mark-border: #c4c4c6;
+  
+  --color_outgoingWrapperBg: #f2f2f7;
+}

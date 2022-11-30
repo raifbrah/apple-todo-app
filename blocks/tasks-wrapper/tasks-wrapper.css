@@ -1,0 +1,18 @@
+.tasks-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-wrapper__uncompleted,
+.tasks-wrapper__completed {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.tasks-wrapper.hide-completed-tasks > .completed-tasks-count,
+.tasks-wrapper.hide-completed-tasks > .tasks-wrapper__completed {
+  display: none;
+}

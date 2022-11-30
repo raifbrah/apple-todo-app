@@ -1,0 +1,18 @@
+.add-task-btn {
+  width: 100%;
+  height: max-content;
+  padding: 10px 0;
+
+  gap: 10px;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.add-task-btn__text {
+  color: var(--color_systemOrange);
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0.03em;
+}

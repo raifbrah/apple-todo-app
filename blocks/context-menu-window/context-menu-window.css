@@ -1,0 +1,81 @@
+.context-menu-window {
+  z-index: 1000;
+  position: fixed;
+  top: var(--section-header_height);
+  right: 10px;
+
+  width: min(100%, calc(100vw - 20px));
+  max-width: 236px;
+  min-height: 42px;
+  
+  border: 1px solid #ccc9;
+  border-radius: 11px;
+  background: #fff9;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+
+  box-shadow: 0px 5px 100px rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.1);
+  transform-origin: top right;
+
+  transition: opacity 300ms, transform 450ms cubic-bezier(0.23, 1.2, 0.31, 1);
+}
+.context-menu-window_open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+
+.context-menu-window__item {
+  width: 100%;
+  min-height: inherit;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid var(--color_border);
+}
+.context-menu-window__item:last-child {
+  border: none;
+}
+.context-menu-window__item:hover {
+  background: #0001;
+}
+.context-menu-window__icon {
+  flex-shrink: 0;
+}
+
+
+.context-menu-window__item-content {
+  width: 100%;
+  min-height: inherit;
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 7px 11px;
+}
+
+
+
+.context-menu-window__completed-tasks .context-menu-window__item-content:nth-child(2) {
+  display: none;
+}
+
+/* Switches the button to the hide completed tasks mode - START */
+.context-menu-window__completed-tasks_off .context-menu-window__item-content:nth-child(1) {
+  display: none;
+}
+.context-menu-window__completed-tasks_off .context-menu-window__item-content:nth-child(2) {
+  display: flex;
+}
+/* Switches the button to the hide completed tasks mode - END */

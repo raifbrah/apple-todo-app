@@ -1,0 +1,37 @@
+.toggle-switch {
+  --toggle-switch_transition-delay: 400ms cubic-bezier(0.5, 0.23, 0.1, 1.4);
+  
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  padding: 2px;
+  width: 48px;
+  height: 29px;
+
+  background-color: #e9e9ea;
+  border-radius: 100px;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition: background-color var(--toggle-switch_transition-delay);
+}
+.toggle-switch::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+
+  transition: transform var(--toggle-switch_transition-delay); /*cubic-bezier(0.36, 1.46, 0.33, 1);*/
+}
+
+.toggle-switch.on {
+  background-color: var(--color_systemGreen);
+}
+.toggle-switch.on::before {
+  transform: translateX(19px);
+}

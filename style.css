@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@import url('./css/colors.css');
+
+@import url('./blocks/add-task-btn/add-task-btn.css');
+@import url('./blocks/completed-tasks-count/completed-tasks-count.css');
+@import url('./blocks/context-menu-window/context-menu-window.css');
+@import url('./blocks/context-menu-btn/context-menu-btn.css');
+@import url('./blocks/mark/mark.css');
+@import url('./blocks/outgoing-wrapper/outgoing-wrapper.css');
+@import url('./blocks/section/section.css');
+@import url('./blocks/section-header/section-header.css');
+@import url('./blocks/shadow-bg/shadow-bg.css');
+@import url('./blocks/task/task.css');
+@import url('./blocks/tasks-wrapper/tasks-wrapper.css');
+@import url('./blocks/toggle-switch/toggle-switch.css');
+@import url('./blocks/wrapper/wrapper.css');
+
+
+
+
+:root {
+  --accent-color: var(--color_systemOrange);
+
+
+  /* BLOCKS - start*/
+  --section-header_height: 42px;
+  --outgoing-wrapper__header_height: 53px;
+  /* BLOCKS - end*/
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  scrollbar-width: thin;
+}
+input, textarea {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+[contenteditable] {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+  line-height: 140%;
+}
+
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(131, 131, 131);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(100, 100, 100);
+}

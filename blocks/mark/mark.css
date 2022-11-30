@@ -1,0 +1,38 @@
+.mark {
+  position: relative;
+  width: 23px;
+  height: 23px;
+
+  border: 2px solid var(--color_mark-border);
+  border-radius: 50%;
+  background: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+.mark::before {
+  content: "";
+
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+
+  opacity: 0;
+
+  border-radius: 50%;
+  background: var(--color_systemOrange);
+
+  transition: opacity 50ms;
+}
+
+.mark.completed {
+  border: 2px solid var(--color_systemOrange);
+}
+.mark.completed::before {
+  opacity: 1;
+}
