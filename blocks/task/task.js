@@ -1,8 +1,13 @@
-class Task {
-  constuctor(title, note, date, imgs) {
-    this.title = title;
-    this.note = note;
-    this.date = date;
-    this.imgs = imgs;
-  }
+export class Task {
+  title = false;
+  note = false;
+  date = "";
+  imgs = [];
+  sync = false;
 }
+
+export function complete(elem) {
+  elem.classList.add("task_completed");
+}
+
+export function uncomplete(elem) {}

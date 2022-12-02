@@ -1,5 +1,5 @@
 .toggle-switch {
-  --toggle-switch_transition-delay: 400ms cubic-bezier(0.5, 0.23, 0.1, 1.4);
+  --toggle-switch_transition-delay: 300ms cubic-bezier(0.5, 0.23, 0.1, 1.4);
   
   display: flex;
   align-items: center;
@@ -26,12 +26,12 @@
   border-radius: 50%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 
-  transition: transform var(--toggle-switch_transition-delay); /*cubic-bezier(0.36, 1.46, 0.33, 1);*/
+  transition: transform var(--toggle-switch_transition-delay);
 }
 
-.toggle-switch.on {
+.toggle-switch_on {
   background-color: var(--color_systemGreen);
 }
-.toggle-switch.on::before {
+.toggle-switch_on::before {
   transform: translateX(19px);
 }

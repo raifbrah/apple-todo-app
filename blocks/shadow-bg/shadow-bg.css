@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
 
-  display: none;
+  visibility: hidden;
   pointer-events: none;
   opacity: 0;
   background: #000;

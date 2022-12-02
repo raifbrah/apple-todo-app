@@ -30,9 +30,9 @@
   transition: opacity 50ms;
 }
 
-.mark.completed {
+.mark_completed {
   border: 2px solid var(--color_systemOrange);
 }
-.mark.completed::before {
+.mark_completed::before {
   opacity: 1;
 }

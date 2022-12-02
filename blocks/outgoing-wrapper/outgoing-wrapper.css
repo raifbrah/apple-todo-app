@@ -5,13 +5,13 @@
   left: 0;
   right: 0;
 
-  height: calc( var(--100vh) / 100 * 90 );
+  height: calc( var(--100vh) - 90px );
   visibility: hidden;
 
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   background: var(--color_outgoingWrapperBg);
 
-  transition: transform 300ms, visibility 300ms;
+  transition: transform 600ms cubic-bezier(0.4, 1.1, 0.3, 1), visibility 600ms;
 }
 .outgoing-wrapper_open {
   transform: translateY(-100%);

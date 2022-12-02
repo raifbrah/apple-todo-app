@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
   
   <link rel="stylesheet" href="style.css">
 
-  <title>ToDo List</title>
+  <title>Apple ToDo List</title>
 </head>
 <body>
   <script src="./js/currentHeight.js"></script>
@@ -22,7 +22,7 @@
       <h3 class="section-header__title">Напоминания</h3>
       <div class="section-header__right">
         <div class="section-header__item">
-          <div class="context-menu-btn">
+          <div class="context-menu-btn" onclick="contextMenuBtnJS.open()">
             <svg class="context-menu-btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 10C6.75 10.6904 6.19036 11.25 5.5 11.25C4.80964 11.25 4.25 10.6904 4.25 10C4.25 9.30964 4.80964 8.75 5.5 8.75C6.19036 8.75 6.75 9.30964 6.75 10ZM11.25 10C11.25 10.6904 10.6904 11.25 10 11.25C9.30964 11.25 8.75 10.6904 8.75 10C8.75 9.30964 9.30964 8.75 10 8.75C10.6904 8.75 11.25 9.30964 11.25 10ZM14.5 11.25C15.1904 11.25 15.75 10.6904 15.75 10C15.75 9.30964 15.1904 8.75 14.5 8.75C13.8096 8.75 13.25 9.30964 13.25 10C13.25 10.6904 13.8096 11.25 14.5 11.25Z" fill="#007AFF"/>
               <rect x="0.75" y="0.75" width="18.5" height="18.5" rx="9.25" stroke="#007AFF" stroke-width="1.5"/>
@@ -33,7 +33,7 @@
       </div>
     </header>
     <div class="section__footer">
-      <div class="add-task-btn section__add-tasks-btn">
+      <div class="add-task-btn section__add-tasks-btn" onclick="outgoingWrapperJS.newTask()">
         <svg class="add-task-btn__icon" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="23" height="23" rx="11.5" fill="#FF9500"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 5C10.6716 5 10 5.67157 10 6.5V10H6.5C5.67157 10 5 10.6716 5 11.5C5 12.3284 5.67157 13 6.5 13H10V16.5C10 17.3284 10.6716 18 11.5 18C12.3284 18 13 17.3284 13 16.5V13H16.5C17.3284 13 18 12.3284 18 11.5C18 10.6716 17.3284 10 16.5 10H13V6.5C13 5.67157 12.3284 5 11.5 5Z" fill="white"/>
@@ -59,7 +59,7 @@
             </div>
             <div class="task__content">
               <div class="task__left">
-                <button class="mark"></button>
+                <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
               <div class="task__right">
                 <div class="task__title">Заголовок</div>
@@ -150,7 +150,7 @@
             </div>
             <div class="task__content">
               <div class="task__left">
-                <button class="mark"></button>
+                <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
               <div class="task__right">
                 <div class="task__title">Заголовок</div>
@@ -174,7 +174,7 @@
 
 <div class="outgoing-wrapper outgoing-wrapper_type_more-details">
   <div class="outgoing-wrapper__header">
-    <div class="outgoing-wrapper__header-item outgoing-wrapper__cancel-btn">
+    <div class="outgoing-wrapper__header-item outgoing-wrapper__cancel-btn" onclick="outgoingWrapperJS.close()">
       Отменить
     </div>
     <div class="outgoing-wrapper__header-item outgoing-wrapper__done-btn">
@@ -202,7 +202,7 @@
           <div class="outgoing-wrapper__2-row-title">Дата</div>
           <div class="outgoing-wrapper__2-row-subtitle">Завтра</div>
         </div>
-        <span class="toggle-switch"></span>
+        <span class="toggle-switch" onclick="toggleSwitchJS.toggle(this)"></span>
       </div>
     </div>
     <div class="outgoing-wrapper__items-container outgoing-wrapper__items-container_type_files">
@@ -304,6 +304,6 @@
 
 
 
-<script src="main.js" type="module"></script>
+<script class="mainJS" src="main.js" type="module"></script>
 </body>
 </html>

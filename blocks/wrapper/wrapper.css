@@ -7,8 +7,10 @@
   left: 0;
   right: 0;
   height: var(--100vh);
+  overflow: hidden;
+  background-color: #fff;
 
   display: flex;
 
-  overflow: hidden;
+  transform-origin: top center;
 }
