@@ -12,10 +12,24 @@ const outgoingWrapper__header = document.querySelector(
 const outgoingWrapper__input_for_title = document.querySelector(
   ".outgoing-wrapper__input_for_title"
 );
+const outgoingWrapper__INPUTS = document.querySelectorAll(
+  ".outgoing-wrapper__input"
+);
+const outgointWrapper__dateInput = document.querySelector(
+  "#outgoing-wrapper__date-input"
+);
+const outgoingWrapper__dateToggleSwitch = document.querySelector(
+  ".outgoing-wrapper__item_for_task-date .toggle-switch"
+);
+const outgoingWrapper__filesContainer = document.querySelector(
+  ".outgoing-wrapper__files-container"
+);
 const shadowBg = document.querySelector(".shadow-bg");
 const wrapper = document.querySelector(".wrapper");
 
 let task = new taskJS.Task();
+
+outgointWrapper__dateInput.value = getDateForInputValue();
 
 export function getTask() {
   return task;
@@ -77,6 +91,8 @@ export function close() {
 
       wrapper.style.transition = "0ms";
     }
+
+    resetAll();
   }, 600);
 
   outgoingWrapper.classList.remove("outgoing-wrapper_open");
@@ -91,4 +107,34 @@ export function close() {
   );
 }
 
-function resetAll() {} /* НАПИСАТЬ СБРОС ВСЕХ ЭЛЕМЕНТОВ БЛОКА */
+function resetAll() {
+  outgoingWrapper__INPUTS.forEach((element) => {
+    element.innerHTML = "";
+  });
+
+  outgointWrapper__dateInput.value = getDateForInputValue();
+  outgoingWrapper__dateToggleSwitch.classList.remove("toggle-switch_on");
+  outgoingWrapper__filesContainer.innerHTML = "";
+}
+
+function getDateForInputValue() {
+  let dateForInput = "";
+
+  dateForInput += new Date().getFullYear();
+  dateForInput += "-";
+
+  if (new Date().getMonth() < 10) {
+    dateForInput += 0;
+  }
+
+  dateForInput += new Date().getMonth();
+  dateForInput += "-";
+
+  if (new Date().getDate() + 1 < 10) {
+    dateForInput += 0;
+  }
+
+  dateForInput += new Date().getDate() + 1;
+
+  return dateForInput;
+}

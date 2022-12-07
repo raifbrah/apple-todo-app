@@ -129,14 +129,15 @@
         <img src="./img/mini-icons/calendar.svg" alt="calendar icon">
         <label class="outgoing-wrapper__2-row-container" for="outgoing-wrapper__date-input">
           <div class="outgoing-wrapper__2-row-title">Дата</div>
-          <input type="date" id="outgoing-wrapper__date-input" class="date-input" value="2022-11-29">
+          <input type="date" id="outgoing-wrapper__date-input" class="date-input" value="2022-11-29" min="2000-01-01" max="9999-12-31">
         </label>
         <span class="toggle-switch" onclick="toggleSwitchJS.toggle(this)"></span>
       </div>
     </div>
     <div class="outgoing-wrapper__items-container outgoing-wrapper__items-container_type_files">
       <div class="outgoing-wrapper__item">
-        <button class="outgoing-wrapper__add-image-btn">Добавить изображение</button>
+        <input type="file" id="outgoing-wrapper__add-image-input">
+        <label class="outgoing-wrapper__add-image-btn" for="outgoing-wrapper__add-image-input">Добавить изображение</label>
       </div>
       <div class="outgoing-wrapper__files-container">
         <div class="outgoing-wrapper__file-item">

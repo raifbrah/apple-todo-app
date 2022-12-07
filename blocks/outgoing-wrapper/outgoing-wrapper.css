@@ -50,6 +50,7 @@
 /* Type of outgoing wrapper - end*/
 
 .outgoing-wrapper__header {
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
@@ -82,7 +83,7 @@
 }
 
 .outgoing-wrapper__header-item {
-  z-index: 1;
+  z-index: 1001;
   position: relative;
   display: flex;
   align-items: center;
@@ -111,7 +112,7 @@
 }
 
 .outgoing-wrapper__title {
-  z-index: 1;
+  z-index: 1001;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -125,6 +126,8 @@
 }
 
 .outgoing-wrapper__content {
+  position: 0;
+
   gap: 15px;
   display: flex;
   flex-direction: column;
@@ -201,6 +204,9 @@
   font-weight: 500;
 }
 
+#outgoing-wrapper__add-image-input {
+  display: none;
+}
 .outgoing-wrapper__add-image-btn {
   width: 100%;
 
@@ -218,7 +224,6 @@
 
 .outgoing-wrapper__files-container {
   width: 100%;
-  min-height: 45px;
 
   display: flex;
   flex-direction: column;
