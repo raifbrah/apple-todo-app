@@ -9,7 +9,6 @@ const outgoingWrapper__addBtn = document.querySelector(
 );
 
 export function onChange() {
-  console.log("worked");
   if (outgoingWrapper__input_for_title.innerText.trim() !== "") {
     outgoingWrapper__doneBtn.classList.add(
       "outgoing-wrapper__done-btn_clickable"

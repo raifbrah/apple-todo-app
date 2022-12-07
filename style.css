@@ -5,6 +5,7 @@
 @import url('./blocks/add-task-btn/add-task-btn.css');
 @import url('./blocks/completed-tasks-count/completed-tasks-count.css');
 @import url('./blocks/context-menu-window/context-menu-window.css');
+@import url('./blocks/date-input/date-input.css');
 @import url('./blocks/context-menu-btn/context-menu-btn.css');
 @import url('./blocks/mark/mark.css');
 @import url('./blocks/outgoing-wrapper/outgoing-wrapper.css');

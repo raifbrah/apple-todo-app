@@ -21,4 +21,11 @@
 .context-menu-btn__icon {
   width: 20px;
   height: 20px;
+
+  background: var(--color_systemBlue);
+
+  -webkit-mask: url("../../img/mini-icons/context-menu-btn__icon.svg") center no-repeat;
+  -webkit-mask-size: cover;
+  mask: url("../../img/mini-icons/context-menu-btn__icon.svg");
+  mask-size: cover;
 }

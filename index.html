@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
   
   <link rel="stylesheet" href="style.css">
 
@@ -23,21 +25,14 @@
       <div class="section-header__right">
         <div class="section-header__item">
           <div class="context-menu-btn" onclick="contextMenuBtnJS.open()">
-            <svg class="context-menu-btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 10C6.75 10.6904 6.19036 11.25 5.5 11.25C4.80964 11.25 4.25 10.6904 4.25 10C4.25 9.30964 4.80964 8.75 5.5 8.75C6.19036 8.75 6.75 9.30964 6.75 10ZM11.25 10C11.25 10.6904 10.6904 11.25 10 11.25C9.30964 11.25 8.75 10.6904 8.75 10C8.75 9.30964 9.30964 8.75 10 8.75C10.6904 8.75 11.25 9.30964 11.25 10ZM14.5 11.25C15.1904 11.25 15.75 10.6904 15.75 10C15.75 9.30964 15.1904 8.75 14.5 8.75C13.8096 8.75 13.25 9.30964 13.25 10C13.25 10.6904 13.8096 11.25 14.5 11.25Z" fill="#007AFF"/>
-              <rect x="0.75" y="0.75" width="18.5" height="18.5" rx="9.25" stroke="#007AFF" stroke-width="1.5"/>
-            </svg>
+            <i class="context-menu-btn__icon"></i>
           </div>
-          
         </div>
       </div>
     </header>
     <div class="section__footer">
       <div class="add-task-btn section__add-tasks-btn" onclick="outgoingWrapperJS.newTask()">
-        <svg class="add-task-btn__icon" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="23" height="23" rx="11.5" fill="#FF9500"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 5C10.6716 5 10 5.67157 10 6.5V10H6.5C5.67157 10 5 10.6716 5 11.5C5 12.3284 5.67157 13 6.5 13H10V16.5C10 17.3284 10.6716 18 11.5 18C12.3284 18 13 17.3284 13 16.5V13H16.5C17.3284 13 18 12.3284 18 11.5C18 10.6716 17.3284 10 16.5 10H13V6.5C13 5.67157 12.3284 5 11.5 5Z" fill="white"/>
-        </svg>
+        <i class="add-task-btn__icon"></i>
         <span class="add-task-btn__text">Напоминание</span>
       </div>
     </div>
@@ -53,9 +48,7 @@
         <div class="tasks-wrapper__uncompleted">
           <div class="task">
             <div class="task__delete-bg">
-              <svg class="task__trash-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0127 2.76331C11.3409 2.43515 11.786 2.25079 12.25 2.25079H17.7497C18.2138 2.25079 18.6589 2.43515 18.987 2.76331C19.3152 3.09147 19.4996 3.53655 19.4996 4.00063V5.75051H10.5002V4.00063C10.5002 3.53655 10.6846 3.09147 11.0127 2.76331ZM8.5002 5.75051V4.00063C8.5002 3.00611 8.89527 2.05233 9.5985 1.3491C10.3017 0.645865 11.2555 0.250793 12.25 0.250793H17.7497C18.7442 0.250793 19.698 0.645865 20.4013 1.3491C21.1045 2.05233 21.4996 3.00611 21.4996 4.00063V5.75051H24.6163L24.6243 5.75048L24.6323 5.75051H27.3743C27.9266 5.75051 28.3743 6.19822 28.3743 6.75051C28.3743 7.30279 27.9266 7.75051 27.3743 7.75051H25.6243V25.9994C25.6243 26.9939 25.2293 27.9477 24.526 28.6509C23.8228 29.3541 22.869 29.7492 21.8745 29.7492H8.12528C7.13076 29.7492 6.17697 29.3541 5.47374 28.6509C4.77051 27.9477 4.37544 26.9939 4.37544 25.9994V7.75051H2.62573C2.07345 7.75051 1.62573 7.30279 1.62573 6.75051C1.62573 6.19822 2.07345 5.75051 2.62573 5.75051H5.36742L5.37544 5.75048L5.38345 5.75051H8.5002ZM6.37544 7.75051V25.9994C6.37544 26.4635 6.55979 26.9085 6.88795 27.2367C7.21611 27.5648 7.66119 27.7492 8.12528 27.7492H21.8745C22.3386 27.7492 22.7836 27.5648 23.1118 27.2367C23.44 26.9085 23.6243 26.4635 23.6243 25.9994V7.75051H6.37544ZM12.2502 12.6251C12.8025 12.6251 13.2502 13.0728 13.2502 13.6251V21.8746C13.2502 22.4269 12.8025 22.8746 12.2502 22.8746C11.6979 22.8746 11.2502 22.4269 11.2502 21.8746V13.6251C11.2502 13.0728 11.6979 12.6251 12.2502 12.6251ZM18.7498 13.6251C18.7498 13.0728 18.3021 12.6251 17.7498 12.6251C17.1975 12.6251 16.7498 13.0728 16.7498 13.6251V21.8746C16.7498 22.4269 17.1975 22.8746 17.7498 22.8746C18.3021 22.8746 18.7498 22.4269 18.7498 21.8746V13.6251Z" fill="white"/>
-              </svg>              
+              <i class="task__trash-icon"></i>
             </div>
             <div class="task__content">
               <div class="task__left">
@@ -69,73 +62,11 @@
                 </div>
                 <div class="task__imgs-slider">
                   <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
                     <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
                   </div>
                   <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-                      <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
                     <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
                   </div>
                 </div>
@@ -144,9 +75,7 @@
           </div>
           <div class="task">
             <div class="task__delete-bg">
-              <svg class="task__trash-icon" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0127 2.76331C11.3409 2.43515 11.786 2.25079 12.25 2.25079H17.7497C18.2138 2.25079 18.6589 2.43515 18.987 2.76331C19.3152 3.09147 19.4996 3.53655 19.4996 4.00063V5.75051H10.5002V4.00063C10.5002 3.53655 10.6846 3.09147 11.0127 2.76331ZM8.5002 5.75051V4.00063C8.5002 3.00611 8.89527 2.05233 9.5985 1.3491C10.3017 0.645865 11.2555 0.250793 12.25 0.250793H17.7497C18.7442 0.250793 19.698 0.645865 20.4013 1.3491C21.1045 2.05233 21.4996 3.00611 21.4996 4.00063V5.75051H24.6163L24.6243 5.75048L24.6323 5.75051H27.3743C27.9266 5.75051 28.3743 6.19822 28.3743 6.75051C28.3743 7.30279 27.9266 7.75051 27.3743 7.75051H25.6243V25.9994C25.6243 26.9939 25.2293 27.9477 24.526 28.6509C23.8228 29.3541 22.869 29.7492 21.8745 29.7492H8.12528C7.13076 29.7492 6.17697 29.3541 5.47374 28.6509C4.77051 27.9477 4.37544 26.9939 4.37544 25.9994V7.75051H2.62573C2.07345 7.75051 1.62573 7.30279 1.62573 6.75051C1.62573 6.19822 2.07345 5.75051 2.62573 5.75051H5.36742L5.37544 5.75048L5.38345 5.75051H8.5002ZM6.37544 7.75051V25.9994C6.37544 26.4635 6.55979 26.9085 6.88795 27.2367C7.21611 27.5648 7.66119 27.7492 8.12528 27.7492H21.8745C22.3386 27.7492 22.7836 27.5648 23.1118 27.2367C23.44 26.9085 23.6243 26.4635 23.6243 25.9994V7.75051H6.37544ZM12.2502 12.6251C12.8025 12.6251 13.2502 13.0728 13.2502 13.6251V21.8746C13.2502 22.4269 12.8025 22.8746 12.2502 22.8746C11.6979 22.8746 11.2502 22.4269 11.2502 21.8746V13.6251C11.2502 13.0728 11.6979 12.6251 12.2502 12.6251ZM18.7498 13.6251C18.7498 13.0728 18.3021 12.6251 17.7498 12.6251C17.1975 12.6251 16.7498 13.0728 16.7498 13.6251V21.8746C16.7498 22.4269 17.1975 22.8746 17.7498 22.8746C18.3021 22.8746 18.7498 22.4269 18.7498 21.8746V13.6251Z" fill="white"/>
-              </svg>              
+              <i class="task__trash-icon"></i>
             </div>
             <div class="task__content">
               <div class="task__left">
@@ -198,10 +127,10 @@
     <div class="outgoing-wrapper__items-container">
       <div class="outgoing-wrapper__item outgoing-wrapper__item_for_task-date">
         <img src="./img/mini-icons/calendar.svg" alt="calendar icon">
-        <div class="outgoing-wrapper__2-row-container">
+        <label class="outgoing-wrapper__2-row-container" for="outgoing-wrapper__date-input">
           <div class="outgoing-wrapper__2-row-title">Дата</div>
-          <div class="outgoing-wrapper__2-row-subtitle">Завтра</div>
-        </div>
+          <input type="date" id="outgoing-wrapper__date-input" class="date-input" value="2022-11-29">
+        </label>
         <span class="toggle-switch" onclick="toggleSwitchJS.toggle(this)"></span>
       </div>
     </div>
@@ -211,60 +140,25 @@
       </div>
       <div class="outgoing-wrapper__files-container">
         <div class="outgoing-wrapper__file-item">
-          <svg class="outgoing-wrapper__file-delete-btn" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="0.5" width="21" height="21" rx="10.5" fill="#FF3B30"/>
-            <rect x="5.5" y="10.25" width="10" height="1.5" rx="0.75" fill="white"/>
-          </svg>
+          <img class="outgoing-wrapper__file-delete-btn" src="./img/mini-icons/delete-btn.svg" alt="delete btn">
           <div class="outgoing-wrapper__file-img-container">
-            <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-              <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
             <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
           </div>
           <div class="outgoing-wrapper__file-item-right">
             <span class="outgoing-wrapper__file-name">Изображение</span>
-            <svg class="outgoing-wrapper__drag-and-drop-btn" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.5C4 9.08579 4.33579 8.75 4.75 8.75H22.25C22.6642 8.75 23 9.08579 23 9.5C23 9.91421 22.6642 10.25 22.25 10.25H4.75C4.33579 10.25 4 9.91421 4 9.5ZM4 14C4 13.5858 4.33579 13.25 4.75 13.25H22.25C22.6642 13.25 23 13.5858 23 14C23 14.4142 22.6642 14.75 22.25 14.75H4.75C4.33579 14.75 4 14.4142 4 14ZM4.75 17.75C4.33579 17.75 4 18.0858 4 18.5C4 18.9142 4.33579 19.25 4.75 19.25H22.25C22.6642 19.25 23 18.9142 23 18.5C23 18.0858 22.6642 17.75 22.25 17.75H4.75Z" fill="#C5C5C7"/>
-            </svg>
+            <i class="outgoing-wrapper__drag-and-drop-btn"></i>
           </div>
         </div>
         <div class="outgoing-wrapper__file-item">
-          <svg class="outgoing-wrapper__file-delete-btn" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="0.5" width="21" height="21" rx="10.5" fill="#FF3B30"/>
-            <rect x="5.5" y="10.25" width="10" height="1.5" rx="0.75" fill="white"/>
-          </svg>
+          <img class="outgoing-wrapper__file-delete-btn" src="./img/mini-icons/delete-btn.svg" alt="delete btn">
           <div class="outgoing-wrapper__file-img-container">
-            <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-              <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
             <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
           </div>
           <div class="outgoing-wrapper__file-item-right">
             <span class="outgoing-wrapper__file-name">Изображение</span>
-            <svg class="outgoing-wrapper__drag-and-drop-btn" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.5C4 9.08579 4.33579 8.75 4.75 8.75H22.25C22.6642 8.75 23 9.08579 23 9.5C23 9.91421 22.6642 10.25 22.25 10.25H4.75C4.33579 10.25 4 9.91421 4 9.5ZM4 14C4 13.5858 4.33579 13.25 4.75 13.25H22.25C22.6642 13.25 23 13.5858 23 14C23 14.4142 22.6642 14.75 22.25 14.75H4.75C4.33579 14.75 4 14.4142 4 14ZM4.75 17.75C4.33579 17.75 4 18.0858 4 18.5C4 18.9142 4.33579 19.25 4.75 19.25H22.25C22.6642 19.25 23 18.9142 23 18.5C23 18.0858 22.6642 17.75 22.25 17.75H4.75Z" fill="#C5C5C7"/>
-            </svg>
-          </div>
-        </div>
-        <div class="outgoing-wrapper__file-item">
-          <svg class="outgoing-wrapper__file-delete-btn" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="0.5" width="21" height="21" rx="10.5" fill="#FF3B30"/>
-            <rect x="5.5" y="10.25" width="10" height="1.5" rx="0.75" fill="white"/>
-          </svg>
-          <div class="outgoing-wrapper__file-img-container">
-            <svg class="outgoing-wrapper__file-background" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect y="0.5" width="27" height="27" rx="6" fill="#FFCC00"/>
-              <path d="M21.1633 17.9267L18.6854 12.1396C17.8463 10.1763 16.3025 10.0971 15.2654 11.9654L13.7692 14.665C13.0092 16.0346 11.5921 16.1533 10.6104 14.9263L10.4363 14.7046C9.41501 13.4221 7.97418 13.5804 7.23793 15.045L5.87626 17.7763C4.91835 19.6763 6.30376 21.9167 8.42543 21.9167H18.5271C20.5854 21.9167 21.9708 19.8188 21.1633 17.9267ZM9.51793 10.8333C10.1478 10.8333 10.7519 10.5831 11.1973 10.1377C11.6427 9.69232 11.8929 9.08822 11.8929 8.45834C11.8929 7.82845 11.6427 7.22436 11.1973 6.77896C10.7519 6.33356 10.1478 6.08334 9.51793 6.08334C8.88804 6.08334 8.28395 6.33356 7.83855 6.77896C7.39315 7.22436 7.14293 7.82845 7.14293 8.45834C7.14293 9.08822 7.39315 9.69232 7.83855 10.1377C8.28395 10.5831 8.88804 10.8333 9.51793 10.8333V10.8333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-          </div>
-          <div class="outgoing-wrapper__file-item-right">
-            <span class="outgoing-wrapper__file-name">Изображение</span>
-            <svg class="outgoing-wrapper__drag-and-drop-btn" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.5C4 9.08579 4.33579 8.75 4.75 8.75H22.25C22.6642 8.75 23 9.08579 23 9.5C23 9.91421 22.6642 10.25 22.25 10.25H4.75C4.33579 10.25 4 9.91421 4 9.5ZM4 14C4 13.5858 4.33579 13.25 4.75 13.25H22.25C22.6642 13.25 23 13.5858 23 14C23 14.4142 22.6642 14.75 22.25 14.75H4.75C4.33579 14.75 4 14.4142 4 14ZM4.75 17.75C4.33579 17.75 4 18.0858 4 18.5C4 18.9142 4.33579 19.25 4.75 19.25H22.25C22.6642 19.25 23 18.9142 23 18.5C23 18.0858 22.6642 17.75 22.25 17.75H4.75Z" fill="#C5C5C7"/>
-            </svg>
+            <i class="outgoing-wrapper__drag-and-drop-btn"></i>
           </div>
         </div>
       </div>

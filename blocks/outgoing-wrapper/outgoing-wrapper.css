@@ -233,11 +233,14 @@
   display: flex;
   align-items: center;
 }
-.outgoing-wrapper__file-item > .outgoing-wrapper__file-delete-btn,
-.outgoing-wrapper__file-item > .outgoing-wrapper__file-img-container {
+.outgoing-wrapper__file-delete-btn,
+.outgoing-wrapper__file-img-container {
   flex-shrink: 0;
 }
-
+.outgoing-wrapper__file-delete-btn {
+  width: 21px;
+  height: 21px;
+}
 .outgoing-wrapper__file-img-container {
   position: relative;
   width: 27px;
@@ -284,5 +287,15 @@
   width: 100%;
 }
 .outgoing-wrapper__drag-and-drop-btn {
+  width: 27px;
+  height: 27px;
+
+  background: #c5c5c7;
+
+  -webkit-mask: url("../../img/mini-icons/drag-and-drop-btn.svg") center no-repeat;
+  -webkit-mask-size: cover;
+  mask: url("../../img/mini-icons/drag-and-drop-btn.svg");
+  mask-size: cover;
+
   flex-shrink: 0;
 }

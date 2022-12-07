@@ -16,3 +16,15 @@
   line-height: 100%;
   letter-spacing: 0.03em;
 }
+
+.add-task-btn__icon {
+  width: 23px;
+  height: 23px;
+  
+  background-color: var(--color_systemOrange);
+
+  -webkit-mask: url("../../img/mini-icons/add-task-btn__icon.svg") center no-repeat;
+  -webkit-mask-size: cover;
+  mask: url("../../img/mini-icons/add-task-btn__icon.svg") center no-repeat;
+  mask-size: cover;
+}

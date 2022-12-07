@@ -49,6 +49,16 @@
   background: var(--color_systemRed);
 }
 .task__trash-icon {
+  width: 30px;
+  height: 30px;
+
+  background: #fff;
+
+  -webkit-mask: url("../../img/mini-icons/trash-icon.svg") center no-repeat;
+  -webkit-mask-size: cover;
+  mask: url("../../img/mini-icons/trash-icon.svg");
+  mask-size: cover;
+
   flex-shrink: 0;
 }
 
