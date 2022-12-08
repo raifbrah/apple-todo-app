@@ -1,6 +1,8 @@
 import * as taskJS from "../task/task.js";
 import * as outgoingWrapper__input_for_titleJS from "./outgoing-wrapper__input/outgoing-wrapper__input_for_title.js";
 import * as outgoingWrapper__contentJS from "./outgoing-wrapper__content/outgoing-wrapper__content.js";
+import * as outgoingWrapper__filesContainerJS from "./&__files-container/outgoing-wrapper__files-container.js";
+
 
 const outgoingWrapper = document.querySelector(".outgoing-wrapper");
 const outgoingWrapper__content = document.querySelector(

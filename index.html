@@ -136,7 +136,7 @@
     </div>
     <div class="outgoing-wrapper__items-container outgoing-wrapper__items-container_type_files">
       <div class="outgoing-wrapper__item">
-        <input type="file" id="outgoing-wrapper__add-image-input">
+        <input type="file" id="outgoing-wrapper__add-image-input" accept="image/*" onchange="outgoingWrapper__filesContainerJS.pushToContainer(this)">
         <label class="outgoing-wrapper__add-image-btn" for="outgoing-wrapper__add-image-input">Добавить изображение</label>
       </div>
       <div class="outgoing-wrapper__files-container">

@@ -5,6 +5,7 @@ import * as taskJS from "./blocks/task/task.js";
 import * as tasksWrapperJS from "./blocks/tasks-wrapper/tasks-wrapper.js";
 import * as toggleSwitchJS from "./blocks/toggle-switch/toggle-switch.js";
 import * as markJS from "./blocks/mark/mark.js";
+import * as outgoingWrapper__filesContainerJS from "./blocks/outgoing-wrapper/&__files-container/outgoing-wrapper__files-container.js";
 
 document.sectionHeaderJS = sectionHeaderJS;
 document.outgoingWrapperJS = outgoingWrapperJS;
@@ -13,3 +14,4 @@ document.taskJS = taskJS;
 document.tasksWrapperJS = tasksWrapperJS;
 document.toggleSwitchJS = toggleSwitchJS;
 document.markJS = markJS;
+document.outgoingWrapper__filesContainerJS = outgoingWrapper__filesContainerJS;
