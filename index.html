@@ -43,7 +43,7 @@
           <span class="completed-tasks-count__count">0</span>
           завершены
           <span class="interpunct">·</span>
-          <button class="completed-tasks-count__clear-btn">Очистить</button>
+          <button class="completed-tasks-count__clear-btn" onclick="tasksWrapperJS.clearCompletedTasks()">Очистить</button>
         </div>
         <div class="tasks-wrapper__uncompleted">
           <div class="task">
@@ -54,7 +54,7 @@
               <div class="task__left">
                 <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
-              <div class="task__right">
+              <div class="task__right" onclick="outgoingWrapperJS.editTask(this)">
                 <div class="task__title">Заголовок</div>
                 <div class="task__note">Какой-то комментарий</div>
                 <div class="task__properties">
@@ -81,7 +81,7 @@
               <div class="task__left">
                 <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
-              <div class="task__right">
+              <div class="task__right" onclick="outgoingWrapperJS.editTask(this)">
                 <div class="task__title">Заголовок</div>
                 <div class="task__note">Какой-то комментарий</div>
                 <div class="task__properties">
@@ -177,6 +177,6 @@
 
 
 
-<script class="mainJS" src="main.js" type="module"></script>
+<script src="main.js" type="module"></script>
 </body>
 </html>
