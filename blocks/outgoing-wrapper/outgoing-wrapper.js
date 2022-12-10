@@ -73,7 +73,10 @@ export function addTask() {
   close();
 }
 
-export function editTask(thisTaskRight) {
+export function editTask(thisTask) {
+  outgoingWrapper.classList.remove("outgoing-wrapper_type_new-task");
+  outgoingWrapper.classList.add("outgoing-wrapper_type_more-details");
+
   const outgoingWrapper__input_for_title = document.querySelector(
     ".outgoing-wrapper__input_for_title"
   );
@@ -91,7 +94,7 @@ export function editTask(thisTaskRight) {
   );
 
   const thisArrowTask = taskJS.parseHtmlTask_to_arrow(
-    thisTaskRight.parentNode.parentNode
+    thisTask
   );
 
   outgoingWrapper__input_for_title.innerText = thisArrowTask.title;

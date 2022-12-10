@@ -285,8 +285,9 @@
 
   width: inherit;
   height: inherit;
-
   object-fit: cover;
+
+  cursor: pointer;
 }
 
 .outgoing-wrapper__file-item-right {

@@ -54,10 +54,10 @@
               <div class="task__left">
                 <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
-              <div class="task__right" onclick="outgoingWrapperJS.editTask(this)">
-                <div class="task__title">Заголовок</div>
-                <div class="task__note">Какой-то комментарий</div>
-                <div class="task__properties">
+              <div class="task__right">
+                <div class="task__title" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Заголовок</div>
+                <div class="task__note" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Какой-то комментарий</div>
+                <div class="task__properties" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">
                   <div class="task__due-date">25.11.2022</div>
                 </div>
                 <div class="task__imgs-slider">
@@ -81,10 +81,10 @@
               <div class="task__left">
                 <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
               </div>
-              <div class="task__right" onclick="outgoingWrapperJS.editTask(this)">
-                <div class="task__title">Заголовок</div>
-                <div class="task__note">Какой-то комментарий</div>
-                <div class="task__properties">
+              <div class="task__right">
+                <div class="task__title" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Заголовок</div>
+                <div class="task__note" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Какой-то комментарий</div>
+                <div class="task__properties" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">
                   <div class="task__due-date">29.11.2022</div>
                 </div>
               </div>
@@ -101,7 +101,7 @@
 </div>
 
 
-<div class="outgoing-wrapper outgoing-wrapper_type_more-details">
+<div class="outgoing-wrapper">
   <div class="outgoing-wrapper__header">
     <div class="outgoing-wrapper__header-item outgoing-wrapper__cancel-btn" onclick="outgoingWrapperJS.close()">
       Отменить

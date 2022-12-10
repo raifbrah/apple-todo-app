@@ -15,14 +15,14 @@ export function uncomplete(elem) {}
 /* ==========================
 == Task components - START */
 export function title(text) {
-  return `<div class="task__title">${text}</div>`;
+  return `<div class="task__title" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">${text}</div>`;
 }
 export function note(text) {
-  return `<div class="task__note">${text}</div>`;
+  return `<div class="task__note" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">${text}</div>`;
 }
 export function date(taskDate) {
   return `
-    <div class="task__properties">
+    <div class="task__properties" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">
       <div class="task__due-date">
         ${taskDate.slice(8, 10)}.${taskDate.slice(5, 7)}.${taskDate.slice(0, 4)}
       </div>
@@ -58,7 +58,7 @@ export function parseArrowTask_to_html(arrowTask) {
         <div class="task__left">
           <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
         </div>
-        <div class="task__right" onclick="outgoingWrapperJS.editTask(this)">
+        <div class="task__right">
   `;
 
   if (arrowTask.title) {
