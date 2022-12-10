@@ -177,6 +177,9 @@
 .outgoing-wrapper__item:last-child {
   border-bottom: none;
 }
+.outgoing-wrapper__item_for_task-date .outgoing-wrapper__2-row-container {
+  cursor: pointer;
+}
 /* ITEM - end */
 
 .outgoing-wrapper__input {
@@ -262,6 +265,8 @@
 .outgoing-wrapper__file-delete-btn {
   width: 21px;
   height: 21px;
+
+  cursor: pointer;
 }
 .outgoing-wrapper__file-img-container {
   position: relative;

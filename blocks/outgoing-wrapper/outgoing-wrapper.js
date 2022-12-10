@@ -124,12 +124,15 @@ function open() {
   );
 
   shadowBg.style.visibility = "visible";
-  shadowBg.style.pointerEvents = "auto";
   shadowBg.style.transition = "opacity 600ms";
   shadowBg.style.opacity = ".3";
+  setTimeout(() => {
+    shadowBg.style.pointerEvents = "auto";
+  }, 600);
 
   shadowBg.addEventListener("click", close);
 
+  wrapper.style.pointerEvents = "none";
   wrapper.style.transition = `transform 600ms cubic-bezier(0.4, 1.1, 0.3, 1),
                               border-radius 600ms cubic-bezier(0.4, 1.1, 0.3, 1)`;
   wrapper.style.transform = "translateY(80px) scale(.9)";
@@ -163,6 +166,7 @@ export function close() {
       shadowBg.style.visibility = "hidden";
       shadowBg.style.transition = "0ms";
 
+      wrapper.style.pointerEvents = "auto";
       wrapper.style.transition = "0ms";
     }
 
