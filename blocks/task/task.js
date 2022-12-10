@@ -118,7 +118,7 @@ export function parseHtmlTaskDueDate_to_inputDateValue(htmlTaskDueDate) {
 }
 
 export function parseHtmlTaskImgsSlider_to_imgLinksArrow(htmlTaskImgsSlider) {
-  const fileIMGS = htmlTaskImgsSlider.querySelector(
+  const fileIMGS = htmlTaskImgsSlider.querySelectorAll(
     ".outgoing-wrapper__file-img"
   );
 

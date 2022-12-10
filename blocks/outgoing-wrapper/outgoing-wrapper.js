@@ -2,7 +2,7 @@ import * as taskJS from "../task/task.js";
 import * as outgoingWrapper__input_for_titleJS from "./outgoing-wrapper__input/outgoing-wrapper__input_for_title.js";
 import * as outgoingWrapper__contentJS from "./outgoing-wrapper__content/outgoing-wrapper__content.js";
 import * as tasksWrapperJS from "../tasks-wrapper/tasks-wrapper.js";
-import * as outgoingWrapper__filesContainerJS from "./&__files-container/outgoing-wrapper__files-container";
+import * as outgoingWrapper__filesContainerJS from "./&__files-container/outgoing-wrapper__files-container.js";
 
 const outgoingWrapper = document.querySelector(".outgoing-wrapper");
 const outgoingWrapper__content = document.querySelector(
@@ -100,13 +100,13 @@ export function editTask(thisTaskRight) {
   }
   if (thisArrowTask.date) {
     outgointWrapper__dateInput.value = thisArrowTask.date;
+    outgoingWrapper__dateToggleSwitch.classList.add("toggle-switch_on");
   }
-  if (thisArrowTask.imgs !== []) {
+  if (thisArrowTask.imgs.length > 0) {
     outgoingWrapper__filesContainer.innerHTML =
       outgoingWrapper__filesContainerJS.parseImgLinksArrow_to_html(
         thisArrowTask.imgs
       );
-    outgoingWrapper__dateToggleSwitch.classList.add("toggle-switch_on");
   }
 
   open();
