@@ -41,12 +41,6 @@ export function addTask() {
   outgointWrapper__dateInput = document.querySelector(
     "#outgoing-wrapper__date-input"
   );
-  const outgoingWrapper__filesContainer = document.querySelector(
-    ".outgoing-wrapper__files-container"
-  );
-  const outgoingWrapper__fileITEMS = document.querySelectorAll(
-    ".outgoing-wrapper__file-item"
-  );
 
   let task = new taskJS.Task();
 
@@ -61,11 +55,13 @@ export function addTask() {
   ) {
     task.date = outgointWrapper__dateInput.value;
   }
-  if (outgoingWrapper__fileITEMS.length > 0) {
-    outgoingWrapper__fileITEMS.forEach((elem) => {
-      let imgSrc = elem.querySelector(".outgoing-wrapper__file-img").src;
-      task.imgs.push(imgSrc);
-    });
+  if (document.querySelector(".outgoing-wrapper__file-item")) {
+    document
+      .querySelectorAll(".outgoing-wrapper__file-item")
+      .forEach((elem) => {
+        let imgSrc = elem.querySelector(".outgoing-wrapper__file-img").src;
+        task.imgs.push(imgSrc);
+      });
   }
 
   tasksWrapperJS.addTask(task);
@@ -93,9 +89,7 @@ export function editTask(thisTask) {
     ".outgoing-wrapper__files-container"
   );
 
-  const thisArrowTask = taskJS.parseHtmlTask_to_arrow(
-    thisTask
-  );
+  const thisArrowTask = taskJS.parseHtmlTask_to_arrow(thisTask);
 
   outgoingWrapper__input_for_title.innerText = thisArrowTask.title;
   if (thisArrowTask.note) {

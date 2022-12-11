@@ -70,7 +70,7 @@ export function parseArrowTask_to_html(arrowTask) {
   if (arrowTask.date) {
     taskStart += date(arrowTask.date);
   }
-  if (arrowTask.imgs !== []) {
+  if (arrowTask.imgs.length > 0) {
     taskStart += imgsSlider(arrowTask.imgs);
   }
 
