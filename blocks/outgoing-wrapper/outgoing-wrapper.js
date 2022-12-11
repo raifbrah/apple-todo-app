@@ -11,9 +11,6 @@ const outgoingWrapper__content = document.querySelector(
 const outgoingWrapper__header = document.querySelector(
   ".outgoing-wrapper__header"
 );
-const outgoingWrapper__doneBtn = document.querySelector(
-  ".outgoing-wrapper__done-btn"
-);
 const outgoingWrapper__addBtn = document.querySelector(
   ".outgoing-wrapper__add-btn"
 );
@@ -26,6 +23,8 @@ let outgointWrapper__dateInput = document.querySelector(
 );
 const shadowBg = document.querySelector(".shadow-bg");
 const wrapper = document.querySelector(".wrapper");
+
+let currentHtmlTask;
 
 outgointWrapper__dateInput.value = getDateForInputValue();
 
@@ -95,6 +94,7 @@ export function editTask(thisTask) {
   const outgoingWrapper__filesContainer = document.querySelector(
     ".outgoing-wrapper__files-container"
   );
+  currentHtmlTask = thisTask;
 
   const thisArrowTask = taskJS.parseHtmlTask_to_arrow(thisTask);
 
@@ -113,15 +113,10 @@ export function editTask(thisTask) {
       );
   }
 
-  outgoingWrapper__doneBtn.addEventListener("click", {
-    handleEvent: saveTask,
-    thisTask: thisTask,
-  });
-
   open();
 }
 
-export function saveTask(thisTask) {
+export function saveTask() {
   const outgoingWrapper__input_for_title = document.querySelector(
     ".outgoing-wrapper__input_for_title"
   );
@@ -135,30 +130,45 @@ export function saveTask(thisTask) {
     "#outgoing-wrapper__date-input"
   );
 
-  let task = new taskJS.Task();
+  let thisArrowTask = new taskJS.Task();
+  let indexOfCurrentHtmlTask;
 
   if (outgoingWrapper__input_for_title.innerHTML !== "") {
-    task.title = outgoingWrapper__input_for_title.innerHTML;
+    thisArrowTask.title = outgoingWrapper__input_for_title.innerHTML;
   }
   if (outgoingWrapper__input_for_note.innerHTML !== "") {
-    task.note = outgoingWrapper__input_for_note.innerHTML;
+    thisArrowTask.note = outgoingWrapper__input_for_note.innerHTML;
   }
   if (
     outgoingWrapper__dateToggleSwitch.classList.contains("toggle-switch_on")
   ) {
-    task.date = outgointWrapper__dateInput.value;
+    thisArrowTask.date = outgointWrapper__dateInput.value;
   }
   if (document.querySelector(".outgoing-wrapper__file-item")) {
     document
       .querySelectorAll(".outgoing-wrapper__file-item")
       .forEach((elem) => {
         let imgSrc = elem.querySelector(".outgoing-wrapper__file-img").src;
-        task.imgs.push(imgSrc);
+        thisArrowTask.imgs.push(imgSrc);
       });
   }
 
-  this.thisTask.querySelector(".task__right").innerHTML =
-    taskJS.parseArrowTask_to_taskRightInnerHTML(task);
+  currentHtmlTask.parentNode
+    .querySelectorAll(".task")
+    .forEach((value, index) => {
+      if (currentHtmlTask === value) {
+        indexOfCurrentHtmlTask = index;
+      }
+    });
+
+  tasksWrapperJS.replaceTask(
+    currentHtmlTask.parentNode,
+    indexOfCurrentHtmlTask,
+    thisArrowTask
+  );
+
+  currentHtmlTask.querySelector(".task__right").innerHTML =
+    taskJS.parseArrowTask_to_taskRightInnerHTML(thisArrowTask);
 
   close();
 }
@@ -201,7 +211,6 @@ export function close() {
   outgoingWrapper__addBtn.classList.remove(
     "outgoing-wrapper__add-btn_clickable"
   );
-  outgoingWrapper__doneBtn.removeEventListener("click", saveTask);
 
   shadowBg.style.pointerEvents = "none";
   shadowBg.style.opacity = "0";

@@ -46,50 +46,6 @@
           <button class="completed-tasks-count__clear-btn" onclick="tasksWrapperJS.clearCompletedTasks()">Очистить</button>
         </div>
         <div class="tasks-wrapper__uncompleted">
-          <div class="task">
-            <div class="task__delete-bg">
-              <i class="task__trash-icon"></i>
-            </div>
-            <div class="task__content">
-              <div class="task__left">
-                <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
-              </div>
-              <div class="task__right">
-                <div class="task__title" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Заголовок</div>
-                <div class="task__note" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Какой-то комментарий</div>
-                <div class="task__properties" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">
-                  <div class="task__due-date">25.11.2022</div>
-                </div>
-                <div class="task__imgs-slider">
-                  <div class="outgoing-wrapper__file-img-container">
-                    <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                  <div class="outgoing-wrapper__file-img-container">
-                    <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
-                    <img src="./img/7272.jpg" alt="" class="outgoing-wrapper__file-img">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="task">
-            <div class="task__delete-bg">
-              <i class="task__trash-icon"></i>
-            </div>
-            <div class="task__content">
-              <div class="task__left">
-                <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
-              </div>
-              <div class="task__right">
-                <div class="task__title" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Заголовок</div>
-                <div class="task__note" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">Какой-то комментарий</div>
-                <div class="task__properties" onclick="outgoingWrapperJS.editTask(this.parentNode.parentNode.parentNode)">
-                  <div class="task__due-date">29.11.2022</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="tasks-wrapper__completed"></div>
       </div>
@@ -106,7 +62,7 @@
     <div class="outgoing-wrapper__header-item outgoing-wrapper__cancel-btn" onclick="outgoingWrapperJS.close()">
       Отменить
     </div>
-    <div class="outgoing-wrapper__header-item outgoing-wrapper__done-btn outgoing-wrapper__done-btn_clickable">
+    <div class="outgoing-wrapper__header-item outgoing-wrapper__done-btn outgoing-wrapper__done-btn_clickable" onclick="outgoingWrapperJS.saveTask()">
       Готово
     </div>
     <div class="outgoing-wrapper__header-item outgoing-wrapper__add-btn" onclick="outgoingWrapperJS.addTask()">

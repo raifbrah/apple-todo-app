@@ -5,6 +5,20 @@ const tasks = {
   completed: [],
 };
 
+/* TEST - start  МОЖНО УДАЛИТЬ*/
+let myTestTask = new taskJS.Task();
+myTestTask.title = "Test task title";
+myTestTask.date = "2022-12-01";
+
+let myTestTask2 = new taskJS.Task();
+myTestTask2.title = "Test task tho title";
+myTestTask2.note = "my test note";
+myTestTask2.date = "2022-12-01";
+
+tasks.uncompleted.push(myTestTask);
+tasks.uncompleted.push(myTestTask2);
+/* TEST - end  МОЖНО УДАЛИТЬ*/
+
 renderTasks("uncompleted", tasks.uncompleted);
 renderTasks("completed", tasks.completed);
 completedTasksCount_listener();
@@ -16,6 +30,31 @@ export function addTask(elem) {
   checkTaskDueDate([
     document.querySelector(".tasks-wrapper__uncompleted .task:last-child"),
   ]);
+}
+
+export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
+  const tasksWrapper__uncompleted = document.querySelector(
+    ".tasks-wrapper__uncompleted"
+  );
+  const tasksWrapper__completed = document.querySelector(
+    ".tasks-wrapper__completed"
+  );
+
+  if (parentNodeOfTask === tasksWrapper__uncompleted) {
+    tasks.uncompleted[indexOfTask] = ArrowTask;
+
+    setTimeout(() => {
+      console.log(tasks.uncompleted);
+      checkTaskDueDate([
+        tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
+      ]);
+    }, 200);
+  } else if (parentNodeOfTask === tasksWrapper__completed) {
+    tasks.completed[indexOfTask] = ArrowTask;
+    checkTaskDueDate([
+      tasksWrapper__completed.querySelectorAll(".task")[indexOfTask],
+    ]);
+  }
 }
 
 export function renderTasks(tasksSection, tasksArrow) {
@@ -40,8 +79,8 @@ export function completedTasksCount_listener() {
   completedTasksCount__count.innerText = tasks.completed.length;
 }
 
-function checkTaskDueDate(tasksArrow) {
-  tasksArrow.forEach((value, index) => {
+function checkTaskDueDate(htmlTasksArrow) {
+  htmlTasksArrow.forEach((value) => {
     if (value.querySelector(".task__due-date")) {
       const taskDate = value.querySelector(".task__due-date");
 
