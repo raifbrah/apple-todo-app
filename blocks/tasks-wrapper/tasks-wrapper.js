@@ -44,7 +44,6 @@ export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
     tasks.uncompleted[indexOfTask] = ArrowTask;
 
     setTimeout(() => {
-      console.log(tasks.uncompleted);
       checkTaskDueDate([
         tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
       ]);
