@@ -130,3 +130,22 @@ export function parseHtmlTaskImgsSlider_to_imgLinksArrow(htmlTaskImgsSlider) {
 
   return imgLinksArrow;
 }
+
+export function parseArrowTask_to_taskRightInnerHTML(arrowTask) {
+  let taskRightInnerHtml = "";
+
+  if (arrowTask.title) {
+    taskRightInnerHtml += title(arrowTask.title);
+  }
+  if (arrowTask.note) {
+    taskRightInnerHtml += note(arrowTask.note);
+  }
+  if (arrowTask.date) {
+    taskRightInnerHtml += date(arrowTask.date);
+  }
+  if (arrowTask.imgs.length > 0) {
+    taskRightInnerHtml += imgsSlider(arrowTask.imgs);
+  }
+
+  return taskRightInnerHtml;
+}

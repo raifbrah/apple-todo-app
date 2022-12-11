@@ -11,6 +11,12 @@ const outgoingWrapper__content = document.querySelector(
 const outgoingWrapper__header = document.querySelector(
   ".outgoing-wrapper__header"
 );
+const outgoingWrapper__doneBtn = document.querySelector(
+  ".outgoing-wrapper__done-btn"
+);
+const outgoingWrapper__addBtn = document.querySelector(
+  ".outgoing-wrapper__add-btn"
+);
 
 const outgoingWrapper__INPUTS = document.querySelectorAll(
   ".outgoing-wrapper__input"
@@ -28,6 +34,7 @@ export function newTask() {
   outgoingWrapper.classList.add("outgoing-wrapper_type_new-task");
   open();
 }
+
 export function addTask() {
   const outgoingWrapper__input_for_title = document.querySelector(
     ".outgoing-wrapper__input_for_title"
@@ -106,9 +113,53 @@ export function editTask(thisTask) {
       );
   }
 
+  outgoingWrapper__doneBtn.addEventListener("click", {
+    handleEvent: saveTask,
+    thisTask: thisTask,
+  });
+
   open();
 }
-export function saveTask() {
+
+export function saveTask(thisTask) {
+  const outgoingWrapper__input_for_title = document.querySelector(
+    ".outgoing-wrapper__input_for_title"
+  );
+  const outgoingWrapper__input_for_note = document.querySelector(
+    ".outgoing-wrapper__input_for_note"
+  );
+  const outgoingWrapper__dateToggleSwitch = document.querySelector(
+    ".outgoing-wrapper__item_for_task-date .toggle-switch"
+  );
+  outgointWrapper__dateInput = document.querySelector(
+    "#outgoing-wrapper__date-input"
+  );
+
+  let task = new taskJS.Task();
+
+  if (outgoingWrapper__input_for_title.innerHTML !== "") {
+    task.title = outgoingWrapper__input_for_title.innerHTML;
+  }
+  if (outgoingWrapper__input_for_note.innerHTML !== "") {
+    task.note = outgoingWrapper__input_for_note.innerHTML;
+  }
+  if (
+    outgoingWrapper__dateToggleSwitch.classList.contains("toggle-switch_on")
+  ) {
+    task.date = outgointWrapper__dateInput.value;
+  }
+  if (document.querySelector(".outgoing-wrapper__file-item")) {
+    document
+      .querySelectorAll(".outgoing-wrapper__file-item")
+      .forEach((elem) => {
+        let imgSrc = elem.querySelector(".outgoing-wrapper__file-img").src;
+        task.imgs.push(imgSrc);
+      });
+  }
+
+  this.thisTask.querySelector(".task__right").innerHTML =
+    taskJS.parseArrowTask_to_taskRightInnerHTML(task);
+
   close();
 }
 
@@ -147,6 +198,10 @@ export function close() {
   const outgoingWrapper__input_for_title = document.querySelector(
     ".outgoing-wrapper__input_for_title"
   );
+  outgoingWrapper__addBtn.classList.remove(
+    "outgoing-wrapper__add-btn_clickable"
+  );
+  outgoingWrapper__doneBtn.removeEventListener("click", saveTask);
 
   shadowBg.style.pointerEvents = "none";
   shadowBg.style.opacity = "0";
