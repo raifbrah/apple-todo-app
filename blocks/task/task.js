@@ -6,12 +6,6 @@ export class Task {
   sync = false;
 }
 
-export function complete(elem) {
-  elem.classList.add("task_completed");
-}
-
-export function uncomplete(elem) {}
-
 /* ==========================
 == Task components - START */
 export function title(text) {
@@ -56,7 +50,7 @@ export function parseArrowTask_to_html(arrowTask) {
       </div>
       <div class="task__content">
         <div class="task__left">
-          <button class="mark" onclick="taskJS.complete(this.parentNode.parentNode.parentNode)"></button>
+          <button class="mark" onclick="tasksWrapperJS.complete_or_uncomplete(this.parentNode.parentNode.parentNode)"></button>
         </div>
         <div class="task__right">
   `;

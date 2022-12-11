@@ -22,6 +22,7 @@ tasks.uncompleted.push(myTestTask2);
 renderTasks("uncompleted", tasks.uncompleted);
 renderTasks("completed", tasks.completed);
 completedTasksCount_listener();
+taskMarkCompletion_toggleOn();
 checkTaskDueDate(document.querySelectorAll(".task"));
 
 export function addTask(elem) {
@@ -42,12 +43,9 @@ export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
 
   if (parentNodeOfTask === tasksWrapper__uncompleted) {
     tasks.uncompleted[indexOfTask] = ArrowTask;
-
-    setTimeout(() => {
-      checkTaskDueDate([
-        tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
-      ]);
-    }, 200);
+    checkTaskDueDate([
+      tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
+    ]);
   } else if (parentNodeOfTask === tasksWrapper__completed) {
     tasks.completed[indexOfTask] = ArrowTask;
     checkTaskDueDate([
@@ -107,5 +105,52 @@ export function clearCompletedTasks() {
 
   tasks.completed = [];
   tasksWrapper__completed.innerHTML = "";
+  completedTasksCount_listener();
+}
+
+function taskMarkCompletion_toggleOn() {
+  const completedTasks = document.querySelectorAll(
+    ".tasks-wrapper__completed .task"
+  );
+
+  completedTasks.forEach((value) => {
+    value.classList.add("task_completed");
+  });
+}
+
+export function complete_or_uncomplete(htmlTask) {
+  const tasksWrapper__uncompleted = document.querySelector(
+    ".tasks-wrapper__uncompleted"
+  );
+  const tasksWrapper__completed = document.querySelector(
+    ".tasks-wrapper__completed"
+  );
+
+  let taskIndexInSection;
+
+  htmlTask.parentNode.querySelectorAll(".task").forEach((value, i) => {
+    if (value === htmlTask) {
+      taskIndexInSection = i;
+    }
+  });
+
+  htmlTask.classList.toggle("task_completed");
+
+  const newHtmlTask = htmlTask.cloneNode(true);
+
+  if (htmlTask.parentNode === tasksWrapper__uncompleted) {
+    htmlTask.remove();
+    tasksWrapper__completed.appendChild(newHtmlTask);
+
+    tasks.completed.push(tasks.uncompleted[taskIndexInSection]);
+    tasks.uncompleted.splice(taskIndexInSection, 1);
+  } else if (htmlTask.parentNode === tasksWrapper__completed) {
+    htmlTask.remove();
+    tasksWrapper__uncompleted.appendChild(newHtmlTask);
+
+    tasks.uncompleted.push(tasks.completed[taskIndexInSection]);
+    tasks.completed.splice(taskIndexInSection, 1);
+  }
+
   completedTasksCount_listener();
 }
