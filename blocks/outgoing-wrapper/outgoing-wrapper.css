@@ -186,6 +186,8 @@
   width: 100%;
   outline: none;
 
+  font-size: 16px;
+
   cursor: text;
 }
 .outgoing-wrapper__input[placeholder]:empty:before {
