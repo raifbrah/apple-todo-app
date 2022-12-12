@@ -47,7 +47,7 @@ export function pushToContainer(input) {
         <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
         <img class="outgoing-wrapper__file-img" src="${window.URL.createObjectURL(
           file
-        )}" alt="">
+        )}" alt="" onclick="imgViewerJS.open(this)">
       </div>
       <div class="outgoing-wrapper__file-item-right">
         <span class="outgoing-wrapper__file-name">Изображение</span>
@@ -67,7 +67,7 @@ export function parseImgLinksArrow_to_html(imgLinksArrow) {
         <img class="outgoing-wrapper__file-delete-btn" onclick="outgoingWrapper__filesContainerJS.removeItem(this)" src="./img/mini-icons/delete-btn.svg" alt="delete btn">
         <div class="outgoing-wrapper__file-img-container">
           <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
-          <img class="outgoing-wrapper__file-img" src="${imgLink}" alt="">
+          <img class="outgoing-wrapper__file-img" src="${imgLink}" alt="" onclick="imgViewerJS.open(this)">
         </div>
         <div class="outgoing-wrapper__file-item-right">
           <span class="outgoing-wrapper__file-name">Изображение</span>

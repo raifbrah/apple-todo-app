@@ -30,7 +30,7 @@ export function imgsSlider(imgLinksArray) {
     sliderStart += `
       <div class="outgoing-wrapper__file-img-container">
         <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
-        <img src="${imgLink}" alt="" class="outgoing-wrapper__file-img">
+        <img src="${imgLink}" alt="" class="outgoing-wrapper__file-img" onclick="imgViewerJS.open(this)">
       </div>
     `;
   });

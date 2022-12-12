@@ -1,28 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
-@import url('./css/colors.css');
+@import url("./css/colors.css");
 
-@import url('./blocks/add-task-btn/add-task-btn.css');
-@import url('./blocks/completed-tasks-count/completed-tasks-count.css');
-@import url('./blocks/context-menu-window/context-menu-window.css');
-@import url('./blocks/date-input/date-input.css');
-@import url('./blocks/context-menu-btn/context-menu-btn.css');
-@import url('./blocks/mark/mark.css');
-@import url('./blocks/outgoing-wrapper/outgoing-wrapper.css');
-@import url('./blocks/section/section.css');
-@import url('./blocks/section-header/section-header.css');
-@import url('./blocks/shadow-bg/shadow-bg.css');
-@import url('./blocks/task/task.css');
-@import url('./blocks/tasks-wrapper/tasks-wrapper.css');
-@import url('./blocks/toggle-switch/toggle-switch.css');
-@import url('./blocks/wrapper/wrapper.css');
-
-
-
+@import url("./blocks/add-task-btn/add-task-btn.css");
+@import url("./blocks/completed-tasks-count/completed-tasks-count.css");
+@import url("./blocks/context-menu-window/context-menu-window.css");
+@import url("./blocks/date-input/date-input.css");
+@import url("./blocks/img-viewer/img-viewer.css");
+@import url("./blocks/context-menu-btn/context-menu-btn.css");
+@import url("./blocks/mark/mark.css");
+@import url("./blocks/outgoing-wrapper/outgoing-wrapper.css");
+@import url("./blocks/section/section.css");
+@import url("./blocks/section-header/section-header.css");
+@import url("./blocks/shadow-bg/shadow-bg.css");
+@import url("./blocks/task/task.css");
+@import url("./blocks/tasks-wrapper/tasks-wrapper.css");
+@import url("./blocks/toggle-switch/toggle-switch.css");
+@import url("./blocks/wrapper/wrapper.css");
 
 :root {
   --accent-color: var(--color_systemOrange);
-
 
   /* BLOCKS - start*/
   --section-header_height: 42px;
@@ -47,7 +44,8 @@
 
   scrollbar-width: thin;
 }
-input, textarea {
+input,
+textarea {
   -webkit-user-select: text;
   -khtml-user-select: text;
   -moz-user-select: text;
@@ -64,7 +62,7 @@ input, textarea {
 
 body {
   font-size: 15px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #000000;
 
   margin: 0;
@@ -72,7 +70,6 @@ body {
   background: #000;
   line-height: 140%;
 }
-
 
 ::-webkit-scrollbar {
   width: 3px;

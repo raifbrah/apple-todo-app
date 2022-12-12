@@ -35,14 +35,18 @@ export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
 
   if (parentNodeOfTask === tasksWrapper__uncompleted) {
     tasks.uncompleted[indexOfTask] = ArrowTask;
-    checkTaskDueDate([
-      tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
-    ]);
+    setTimeout(() => {
+      checkTaskDueDate([
+        tasksWrapper__uncompleted.querySelectorAll(".task")[indexOfTask],
+      ]);
+    }, 100);
   } else if (parentNodeOfTask === tasksWrapper__completed) {
     tasks.completed[indexOfTask] = ArrowTask;
-    checkTaskDueDate([
-      tasksWrapper__completed.querySelectorAll(".task")[indexOfTask],
-    ]);
+    setTimeout(() => {
+      checkTaskDueDate([
+        tasksWrapper__completed.querySelectorAll(".task")[indexOfTask],
+      ]);
+    }, 100);
   }
   saveTasksToLocalStorage(tasks);
 }

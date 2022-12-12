@@ -1,0 +1,32 @@
+.img-viewer {
+  z-index: 1500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  visibility: hidden;
+  pointer-events: none;
+
+  will-change: visibility;
+}
+.img-viewer_open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.img-viewer__img {
+  position: absolute;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  object-fit: contain;
+  transform: translateY(100%);
+
+  will-change: transform;
+}

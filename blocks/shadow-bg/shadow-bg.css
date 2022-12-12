@@ -10,4 +10,6 @@
   pointer-events: none;
   opacity: 0;
   background: #000;
+
+  will-change: opacity, visibility;
 }
