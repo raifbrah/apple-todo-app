@@ -3,6 +3,9 @@
 
   width: 100%;
   min-height: 48px;
+  overflow-y: hidden;
+
+  transition: height 300ms;
 }
 
 /* Completed task - start */
@@ -24,14 +27,11 @@
 }
 /* Completed task - end */
 
-
 /* Overdue task - start */
 .task_overdue .task__due-date {
   color: var(--color_systemRed);
 }
 /* Overdue task - end */
-
-
 
 .task__delete-bg {
   z-index: 0;
@@ -46,7 +46,12 @@
   justify-content: flex-end;
 
   padding: 5px;
-  background: var(--color_systemRed);
+  background: #777;
+
+  transition: background-color 200ms;
+}
+.task_ready-to-delete .task__delete-bg {
+  background-color: var(--color_systemRed);
 }
 .task__trash-icon {
   width: 30px;
@@ -86,7 +91,6 @@
   width: 100%;
 }
 
-
 .task__title {
   line-height: 140%;
   overflow-wrap: break-word;
@@ -110,7 +114,6 @@
   letter-spacing: -0.025em;
   color: var(--color_textGray);
 }
-
 
 .task__imgs-slider {
   display: flex;

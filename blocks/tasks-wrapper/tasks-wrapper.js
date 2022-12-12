@@ -1,23 +1,14 @@
 import * as taskJS from "../task/task.js";
+import { saveTasksToLocalStorage } from "../../js/saveToLocalstorage.js";
 
-const tasks = {
+export let tasks = {
   uncompleted: [],
   completed: [],
 };
 
-/* TEST - start  МОЖНО УДАЛИТЬ*/
-let myTestTask = new taskJS.Task();
-myTestTask.title = "Test task title";
-myTestTask.date = "2022-12-01";
-
-let myTestTask2 = new taskJS.Task();
-myTestTask2.title = "Test task tho title";
-myTestTask2.note = "my test note";
-myTestTask2.date = "2022-12-01";
-
-tasks.uncompleted.push(myTestTask);
-tasks.uncompleted.push(myTestTask2);
-/* TEST - end  МОЖНО УДАЛИТЬ*/
+if (localStorage.tasks) {
+  tasks = JSON.parse(localStorage.tasks);
+}
 
 renderTasks("uncompleted", tasks.uncompleted);
 renderTasks("completed", tasks.completed);
@@ -31,6 +22,7 @@ export function addTask(elem) {
   checkTaskDueDate([
     document.querySelector(".tasks-wrapper__uncompleted .task:last-child"),
   ]);
+  saveTasksToLocalStorage(tasks);
 }
 
 export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
@@ -52,6 +44,7 @@ export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
       tasksWrapper__completed.querySelectorAll(".task")[indexOfTask],
     ]);
   }
+  saveTasksToLocalStorage(tasks);
 }
 
 export function renderTasks(tasksSection, tasksArrow) {
@@ -67,6 +60,8 @@ export function renderTasks(tasksSection, tasksArrow) {
       `
     );
   });
+
+  addSwipeDeleteListeners();
 }
 
 export function completedTasksCount_listener() {
@@ -106,6 +101,7 @@ export function clearCompletedTasks() {
   tasks.completed = [];
   tasksWrapper__completed.innerHTML = "";
   completedTasksCount_listener();
+  saveTasksToLocalStorage(tasks);
 }
 
 function taskMarkCompletion_toggleOn() {
@@ -153,4 +149,130 @@ export function complete_or_uncomplete(htmlTask) {
   }
 
   completedTasksCount_listener();
+  addSwipeDeleteListeners();
+  saveTasksToLocalStorage(tasks);
+}
+
+function addSwipeDeleteListeners() {
+  const TASKS__CONTENTS = document.querySelectorAll(".task__content");
+  const serction__content = document.querySelector(".section__content");
+
+  let transitionDelay = 300;
+
+  TASKS__CONTENTS.forEach((htmlTask) => {
+    const task__deleteBg =
+      htmlTask.parentNode.querySelector(".task__delete-bg");
+
+    let startPositionX = null;
+    let currentPositionX = null;
+
+    let startPositionY = null;
+    let currentPositionY = null;
+
+    let positionY_is_changed = false;
+    let positionX_is_started = false;
+
+    let taskIsReadyToBeDeleted = false;
+
+    htmlTask.ontouchstart = (e) => {
+      htmlTask.addEventListener("touchmove", touchMove);
+      htmlTask.addEventListener("touchend", touchEnd);
+      htmlTask.style.willChange = "transform";
+      htmlTask.style.transition = "0s";
+      htmlTask.parentNode.style.willChange = "height";
+      htmlTask.parentNode.style.height = `${htmlTask.parentNode.offsetHeight}px`;
+      task__deleteBg.style.willChangel = "background-color";
+
+      startPositionX = e.changedTouches[0].clientX;
+      startPositionY = e.changedTouches[0].clientY;
+    };
+
+    function touchMove(e) {
+      currentPositionX = e.changedTouches[0].clientX;
+      currentPositionY = e.changedTouches[0].clientY;
+
+      if (
+        positionY_is_changed === false &&
+        Math.abs(startPositionX - currentPositionX) > 20
+      ) {
+        positionX_is_started = true;
+        serction__content.style.overflowY = "hidden";
+        htmlTask.style.transform = `translateX(-${
+          startPositionX - currentPositionX - 20
+        }px)`;
+
+        if (Math.abs(startPositionX - currentPositionX) > 150) {
+          taskIsReadyToBeDeleted = true;
+          htmlTask.parentNode.classList.add("task_ready-to-delete");
+        } else {
+          taskIsReadyToBeDeleted = false;
+          htmlTask.parentNode.classList.remove("task_ready-to-delete");
+        }
+      }
+      if (
+        Math.abs(startPositionY - currentPositionY) > 20 &&
+        positionX_is_started === false
+      ) {
+        positionY_is_changed = true;
+        htmlTask.style.transform = "translateX(0)";
+      }
+    }
+
+    function touchEnd(e) {
+      htmlTask.style.transition = `transform ${transitionDelay}ms`;
+      if (taskIsReadyToBeDeleted) {
+        htmlTask.style.transform = "translate(-100%)";
+        htmlTask.parentNode.style.minHeight = "0";
+        htmlTask.parentNode.style.height = "0";
+
+        htmlTask.parentNode.parentNode
+          .querySelectorAll(".task__content")
+          .forEach((value, i) => {
+            if (htmlTask === value) {
+              setTimeout(() => {
+                removeTask(htmlTask.parentNode.parentNode, i);
+              }, transitionDelay);
+            }
+          });
+      } else {
+        htmlTask.parentNode.style.height = "";
+        htmlTask.style.transform = "translate(0)";
+      }
+
+      setTimeout(() => {
+        htmlTask.style.transition = "0s";
+      }, transitionDelay);
+
+      serction__content.style.overflowY = "auto";
+      htmlTask.removeEventListener("touchmove", touchMove);
+      htmlTask.removeEventListener("touchend", touchEnd);
+      htmlTask.style.willChange = "";
+      htmlTask.parentNode.style.willChange = "";
+      task__deleteBg.style.willChangel = "";
+
+      startPositionX = null;
+      currentPositionX = null;
+
+      startPositionY = null;
+      currentPositionY = null;
+
+      positionY_is_changed = false;
+      positionX_is_started = false;
+
+      taskIsReadyToBeDeleted = false;
+    }
+  });
+}
+
+function removeTask(taskParent, taskId) {
+  taskParent.querySelectorAll(".task")[taskId].remove();
+
+  if (taskParent.classList.contains("tasks-wrapper__uncompleted")) {
+    tasks.uncompleted.splice(taskId, 1);
+  } else {
+    tasks.completed.splice(taskId, 1);
+    completedTasksCount_listener();
+  }
+
+  saveTasksToLocalStorage(tasks);
 }
