@@ -13,6 +13,8 @@
   font-size: inherit;
   font-family: inherit;
 
+  cursor: pointer;
+
   border: none;
   background: none;
 }

@@ -94,6 +94,8 @@
 .task__title {
   line-height: 140%;
   overflow-wrap: break-word;
+
+  cursor: pointer;
 }
 
 .task__note {
@@ -102,11 +104,15 @@
   letter-spacing: -0.025em;
   color: var(--color_textGray);
   overflow-wrap: break-word;
+
+  cursor: pointer;
 }
 
 .task__properties {
   display: flex;
   gap: 5px;
+
+  cursor: pointer;
 }
 .task__due-date {
   font-size: 14px;

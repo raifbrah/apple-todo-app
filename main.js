@@ -1,3 +1,4 @@
+import * as sectionJS from "./blocks/section/section.js";
 import * as sectionHeaderJS from "./blocks/section-header/section-header.js";
 import * as outgoingWrapperJS from "./blocks/outgoing-wrapper/outgoing-wrapper.js";
 import * as contextMenuBtnJS from "./blocks/context-menu-btn/context-menu-btn.js";
@@ -8,6 +9,7 @@ import * as markJS from "./blocks/mark/mark.js";
 import * as outgoingWrapper__filesContainerJS from "./blocks/outgoing-wrapper/&__files-container/outgoing-wrapper__files-container.js";
 import * as imgViewerJS from "./blocks/img-viewer/img-viewer.js";
 
+document.sectionJS = sectionJS;
 document.sectionHeaderJS = sectionHeaderJS;
 document.outgoingWrapperJS = outgoingWrapperJS;
 document.contextMenuBtnJS = contextMenuBtnJS;
