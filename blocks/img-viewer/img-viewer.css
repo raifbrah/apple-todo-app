@@ -13,7 +13,6 @@
 }
 .img-viewer_open {
   pointer-events: auto;
-  visibility: visible;
 }
 
 .img-viewer__img {

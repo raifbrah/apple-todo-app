@@ -16,6 +16,7 @@ export function open(img) {
   imgViewer__img.src = img.src;
   imgViewer__img.style.transition = `${transitionDelay}ms`;
   imgViewer.classList.add("img-viewer_open");
+  imgViewer.style.visibility = "visible";
   imgViewer__img.style.transform = "translateY(-50%)";
 
   setTimeout(() => {
@@ -33,6 +34,7 @@ function close() {
   imgViewer__img.style.transform = "translateY(100%)";
 
   setTimeout(() => {
+    imgViewer.style.visibility = "hidden";
     shadowBg.style.visibility = "hidden";
     shadowBg.style.transition = "0s";
     shadowBg.style.zIndex = "900";
