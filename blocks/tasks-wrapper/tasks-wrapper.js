@@ -1,13 +1,12 @@
 import * as taskJS from "../task/task.js";
-import { saveTasksToLocalStorage } from "../../js/saveToLocalstorage.js";
 
 export let tasks = {
   uncompleted: [],
   completed: [],
 };
 
-if (localStorage.tasks) {
-  tasks = JSON.parse(localStorage.tasks);
+if (await localforage.getItem("tasks")) {
+  tasks = await localforage.getItem("tasks");
 }
 
 renderTasks("uncompleted", tasks.uncompleted);
@@ -22,7 +21,7 @@ export function addTask(elem) {
   checkTaskDueDate([
     document.querySelector(".tasks-wrapper__uncompleted .task:last-child"),
   ]);
-  saveTasksToLocalStorage(tasks);
+  localforage.setItem("tasks", tasks);
 }
 
 export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
@@ -48,7 +47,7 @@ export function replaceTask(parentNodeOfTask, indexOfTask, ArrowTask) {
       ]);
     }, 100);
   }
-  saveTasksToLocalStorage(tasks);
+  localforage.setItem("tasks", tasks);
 }
 
 export function renderTasks(tasksSection, tasksArrow) {
@@ -105,7 +104,7 @@ export function clearCompletedTasks() {
   tasks.completed = [];
   tasksWrapper__completed.innerHTML = "";
   completedTasksCount_listener();
-  saveTasksToLocalStorage(tasks);
+  localforage.setItem("tasks", tasks);
 }
 
 function taskMarkCompletion_toggleOn() {
@@ -154,7 +153,7 @@ export function complete_or_uncomplete(htmlTask) {
 
   completedTasksCount_listener();
   addSwipeDeleteListeners();
-  saveTasksToLocalStorage(tasks);
+  localforage.setItem("tasks", tasks);
 }
 
 function addSwipeDeleteListeners() {
@@ -278,5 +277,5 @@ function removeTask(taskParent, taskId) {
     completedTasksCount_listener();
   }
 
-  saveTasksToLocalStorage(tasks);
+  localforage.setItem("tasks", tasks);
 }

@@ -38,24 +38,29 @@ export function removeItem(deleteBtn) {
 export function pushToContainer(input) {
   let file = input.files[0];
 
-  outgoingWrapper__filesContainer.insertAdjacentHTML(
-    "beforeend",
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    outgoingWrapper__filesContainer.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="outgoing-wrapper__file-item">
+        <img class="outgoing-wrapper__file-delete-btn" onclick="outgoingWrapper__filesContainerJS.removeItem(this)" src="./img/mini-icons/delete-btn.svg" alt="delete btn">
+        <div class="outgoing-wrapper__file-img-container">
+          <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
+          <img class="outgoing-wrapper__file-img" src="${reader.result}" alt="" onclick="imgViewerJS.open(this)">
+        </div>
+        <div class="outgoing-wrapper__file-item-right">
+          <span class="outgoing-wrapper__file-name">Изображение</span>
+          <i class="outgoing-wrapper__drag-and-drop-btn"></i>
+        </div>
+      </div>
     `
-    <div class="outgoing-wrapper__file-item">
-      <img class="outgoing-wrapper__file-delete-btn" onclick="outgoingWrapper__filesContainerJS.removeItem(this)" src="./img/mini-icons/delete-btn.svg" alt="delete btn">
-      <div class="outgoing-wrapper__file-img-container">
-        <img class="outgoing-wrapper__file-background" src="./img/mini-icons/img-icon.svg" alt="image icon">
-        <img class="outgoing-wrapper__file-img" src="${window.URL.createObjectURL(
-          file
-        )}" alt="" onclick="imgViewerJS.open(this)">
-      </div>
-      <div class="outgoing-wrapper__file-item-right">
-        <span class="outgoing-wrapper__file-name">Изображение</span>
-        <i class="outgoing-wrapper__drag-and-drop-btn"></i>
-      </div>
-    </div>
-  `
-  );
+    );
+  };
+  reader.onerror = function () {
+    console.log(reader.error);
+  };
 }
 
 export function parseImgLinksArrow_to_html(imgLinksArrow) {
