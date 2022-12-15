@@ -26,6 +26,8 @@
 
   object-fit: contain;
   transform: translateY(100%);
+  
+  overscroll-behavior-y: contain;
 
   will-change: transform;
 }
