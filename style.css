@@ -69,6 +69,8 @@ body {
   min-width: 320px;
   background: #000;
   line-height: 140%;
+  
+  overscroll-behavior: none;
 }
 
 ::-webkit-scrollbar {
