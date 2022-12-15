@@ -9,6 +9,7 @@
   visibility: hidden;
 
   overflow: hidden;
+  overscroll-behavior-y: contain;
 
   border-radius: 10px 10px 0 0;
   background: var(--color_outgoingWrapperBg);
