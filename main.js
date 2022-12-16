@@ -1,3 +1,4 @@
+import * as appJS from "./app.js";
 import * as sectionJS from "./blocks/section/section.js";
 import * as sectionHeaderJS from "./blocks/section-header/section-header.js";
 import * as outgoingWrapperJS from "./blocks/outgoing-wrapper/outgoing-wrapper.js";
