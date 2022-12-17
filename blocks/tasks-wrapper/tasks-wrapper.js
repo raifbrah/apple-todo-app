@@ -196,7 +196,7 @@ function addSwipeDeleteListeners() {
 
       if (
         positionY_is_changed === false &&
-        Math.abs(startPositionX - currentPositionX) > 20
+        startPositionX - currentPositionX > 20
       ) {
         positionX_is_started = true;
         serction__content.style.overflowY = "hidden";
@@ -204,7 +204,7 @@ function addSwipeDeleteListeners() {
           startPositionX - currentPositionX - 20
         }px)`;
 
-        if (Math.abs(startPositionX - currentPositionX) > 150) {
+        if (startPositionX - currentPositionX > 150) {
           taskIsReadyToBeDeleted = true;
           htmlTask.parentNode.classList.add("task_ready-to-delete");
         } else {
